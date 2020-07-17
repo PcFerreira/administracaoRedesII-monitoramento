@@ -1,0 +1,31 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: site-php
+spec:
+  selector:
+    matchLabels:
+      app: site-php
+      tier: backend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: site-php
+        tier: backend
+    spec:
+      containers:
+      - name: site-php
+        image: site-php-exemplo
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 150m
+            memory: 150Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+
