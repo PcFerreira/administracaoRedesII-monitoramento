@@ -13,6 +13,6 @@ Construa um exemplo de infraestrutura que será utilizado para o monitoramento c
 ```
 skaffold run
 ```
-
+Acesse a página (index.php) em http://localhost:30000/
 
 
